@@ -3,6 +3,11 @@ function ConvertHandler() {
   this.getNum = function (input) {
     let result;
 
+    // Check for multiple slashes, which is invalid
+    if ((input.match(/\//g) || []).length > 1) {
+      return null;
+    }
+
     let numRegex = /^(\d+(\.\d+)?(\/\d+(\.\d+)?)?)?/;
     let match = input.match(numRegex)[0];
 
@@ -18,6 +23,7 @@ function ConvertHandler() {
 
     return isNaN(result) ? null : result;
   };
+
 
   this.getUnit = function (input) {
     let unitRegex = /[a-zA-Z]+$/;
