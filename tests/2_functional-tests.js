@@ -55,7 +55,7 @@ suite('Functional Tests', function () {
                     assert.equal(res.status, 200);
                     assert.isObject(res.body);
                     assert.property(res.body, 'error');
-                    assert.equal(res.body.error, 'invalid unit');
+                    assert.equal(res.body.error, 'invalid number and unit');
                     done();
                });
      });
